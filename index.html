@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио - Ведущий Инженер-Программист</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'code-dark': '#0d1117',
+                        'code-blue': '#58a6ff',
+                        'code-green': '#7c3aed',
+                        'terminal-green': '#00ff00'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'code-rain': 'codeRain 20s linear infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'typing': 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-code-dark text-white min-h-screen relative overflow-x-hidden">
+    <!-- Animated Background -->
+    <div class="fixed inset-0 z-0">
+        <div class="code-matrix"></div>
+        <div class="floating-elements"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black/20 backdrop-blur-md z-50 border-b border-code-blue/20">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-code-blue">
+                    <i class="fas fa-code mr-2"></i>
+                    Portfolio
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-code-blue transition-colors">Главная</a>
+                    <a href="#about" class="hover:text-code-blue transition-colors">О себе</a>
+                    <a href="#experience" class="hover:text-code-blue transition-colors">Опыт</a>
+                    <a href="#projects" class="hover:text-code-blue transition-colors">Проекты</a>
+                    <a href="#contact" class="hover:text-code-blue transition-colors">Контакты</a>
+                </div>
+                <button class="md:hidden text-code-blue" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="fixed top-0 left-0 w-full h-full bg-black/95 z-40 hidden" id="mobile-menu">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="#home" class="hover:text-code-blue transition-colors mobile-menu-link">Главная</a>
+            <a href="#about" class="hover:text-code-blue transition-colors mobile-menu-link">О себе</a>
+            <a href="#experience" class="hover:text-code-blue transition-colors mobile-menu-link">Опыт</a>
+            <a href="#projects" class="hover:text-code-blue transition-colors mobile-menu-link">Проекты</a>
+            <a href="#contact" class="hover:text-code-blue transition-colors mobile-menu-link">Контакты</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative z-10">
+        <div class="text-center max-w-4xl mx-auto px-6">
+            <div class="mb-8">
+                <h1 class="text-6xl md:text-8xl font-bold mb-4">
+                    <span class="typing-text">Developer</span>
+                </h1>
+                <h2 class="text-2xl md:text-4xl text-gray-300 mb-6">
+                    Ведущий Инженер-Программист
+                </h2>
+                <p class="text-xl text-gray-400 mb-8">
+                    АО "НИИ ЦИКЛОН" | Студент СПбПУ
+                </p>
+            </div>
+            
+            <!-- Tech Stack -->
+            <div class="mb-12">
+                <div class="scrolling-text mb-8">
+                    <div class="scrolling-content">
+                        <span>Rust • C++ • Python • Go • Qt/QML • RTSP • Вокодеры • Дроны • Радиостанции • </span>
+                        <span>Rust • C++ • Python • Go • Qt/QML • RTSP • Вокодеры • Дроны • Радиостанции • </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#projects" class="px-8 py-4 bg-gradient-to-r from-code-blue to-purple-600 rounded-lg hover:shadow-lg hover:shadow-code-blue/25 transition-all transform hover:scale-105">
+                    Посмотреть проекты
+                </a>
+                <a href="#contact" class="px-8 py-4 border border-code-blue rounded-lg hover:bg-code-blue/10 transition-all">
+                    Связаться со мной
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-16 text-code-blue">О себе</h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <div class="terminal-window">
+                            <div class="terminal-header">
+                                <div class="terminal-buttons">
+                                    <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                                    <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                                    <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                                </div>
+                                <span class="text-gray-400">terminal</span>
+                            </div>
+                            <div class="terminal-content">
+                                <p class="text-terminal-green">$ whoami</p>
+                                <p class="text-white">Ведущий инженер-программист</p>
+                                <p class="text-terminal-green">$ education --current</p>
+                                <p class="text-white">Студент СПбПУ (2022-текущий)</p>
+                                <p class="text-terminal-green">$ experience --years</p>
+                                <p class="text-white">2021-настоящее время</p>
+                                <p class="text-terminal-green">$ specialization</p>
+                                <p class="text-white">Системное программирование</p>
+                                <p class="cursor">_</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-code-blue">Образование</h3>
+                        <div class="space-y-4">
+                            <div class="bg-gray-800/50 rounded-lg p-4 border-l-4 border-purple-500">
+                                <h4 class="font-bold">СПбПУ</h4>
+                                <p class="text-gray-400">2022 - настоящее время</p>
+                                <p class="text-sm text-gray-300">Техническое направление</p>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-4 border-l-4 border-blue-500">
+                                <h4 class="font-bold">Колледж ИСПиО</h4>
+                                <p class="text-gray-400">2018 - 2022 (4 года)</p>
+                                <p class="text-sm text-gray-300">Среднее профессиональное образование</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-16 text-code-blue">Опыт работы</h2>
+                
+                <div class="relative">
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-code-blue to-purple-500"></div>
+                    
+                    <div class="space-y-12">
+                        <!-- Leading Engineer -->
+                        <div class="flex items-center relative">
+                            <div class="w-1/2 pr-8 text-right">
+                                <div class="bg-gray-800/50 rounded-lg p-6 border border-code-blue/30">
+                                    <h3 class="text-xl font-bold text-code-blue">Ведущий инженер-программист</h3>
+                                    <p class="text-gray-400 mb-2">АО "НИИ ЦИКЛОН"</p>
+                                    <p class="text-sm text-gray-300">Разработка ПО для радиостанций, RTSP серверы, системы для дронов</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-code-blue rounded-full border-4 border-code-dark"></div>
+                            <div class="w-1/2 pl-8">
+                                <div class="text-gray-400">Настоящее время</div>
+                            </div>
+                        </div>
+
+                        <!-- Engineer 1st Category -->
+                        <div class="flex items-center relative">
+                            <div class="w-1/2 pr-8 text-right">
+                                <div class="text-gray-400">2023</div>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full border-4 border-code-dark"></div>
+                            <div class="w-1/2 pl-8">
+                                <div class="bg-gray-800/50 rounded-lg p-6 border border-purple-500/30">
+                                    <h3 class="text-xl font-bold text-purple-400">Инженер-программист 1 категории</h3>
+                                    <p class="text-gray-400 mb-2">АО "НИИ ЦИКЛОН"</p>
+                                    <p class="text-sm text-gray-300">Разработка Qt/QML интерфейсов, низкоуровневое программирование</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Engineer 2nd Category -->
+                        <div class="flex items-center relative">
+                            <div class="w-1/2 pr-8 text-right">
+                                <div class="bg-gray-800/50 rounded-lg p-6 border border-green-500/30">
+                                    <h3 class="text-xl font-bold text-green-400">Инженер-программист 2 категории</h3>
+                                    <p class="text-gray-400 mb-2">АО "НИИ ЦИКЛОН"</p>
+                                    <p class="text-sm text-gray-300">Разработка вокодеров, работа с аудио-системами</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-code-dark"></div>
+                            <div class="w-1/2 pl-8">
+                                <div class="text-gray-400">2022</div>
+                            </div>
+                        </div>
+
+                        <!-- Junior Programmer -->
+                        <div class="flex items-center relative">
+                            <div class="w-1/2 pr-8 text-right">
+                                <div class="text-gray-400">2021</div>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-yellow-500 rounded-full border-4 border-code-dark"></div>
+                            <div class="w-1/2 pl-8">
+                                <div class="bg-gray-800/50 rounded-lg p-6 border border-yellow-500/30">
+                                    <h3 class="text-xl font-bold text-yellow-400">Младший программист</h3>
+                                    <p class="text-gray-400 mb-2">АО "НИИ ЦИКЛОН"</p>
+                                    <p class="text-sm text-gray-300">Начало карьеры, изучение корпоративных технологий</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-16 text-code-blue">Проекты</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1: Платье и торт -->
+                    <div class="project-card group cursor-pointer animate-fade-in" onclick="window.location.href='projects/project1.html'" style="animation-delay: 0.1s;">
+                        <div class="project-icon">
+                            <i class="fas fa-birthday-cake text-4xl text-pink-400 animate-bounce"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-code-blue">Платье и торт</h3>
+                        <p class="text-gray-400 mb-4">Веб-приложение для организации праздничных мероприятий</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Node.js</span>
+                        </div>
+                        <div class="text-pink-400 group-hover:translate-x-2 transition-transform">
+                            Подробнее <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Мировое время -->
+                    <div class="project-card group cursor-pointer animate-fade-in" onclick="window.location.href='projects/project2.html'" style="animation-delay: 0.2s;">
+                        <div class="project-icon">
+                            <i class="fas fa-globe text-4xl text-blue-400 animate-spin" style="animation-duration: 8s;"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-code-blue">Мировое время</h3>
+                        <p class="text-gray-400 mb-4">Приложение для отображения времени в различных часовых поясах</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">API</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                        <div class="text-blue-400 group-hover:translate-x-2 transition-transform">
+                            Подробнее <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Complex Order -->
+                    <div class="project-card group cursor-pointer animate-fade-in" onclick="window.location.href='projects/project3.html'" style="animation-delay: 0.3s;">
+                        <div class="project-icon">
+                            <i class="fas fa-shopping-cart text-4xl text-orange-400 animate-bounce"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-code-blue">Complex Order</h3>
+                        <p class="text-gray-400 mb-4">Система управления сложными заказами</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Microservices</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                        <div class="text-orange-400 group-hover:translate-x-2 transition-transform">
+                            Подробнее <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Задание-запросы -->
+                    <div class="project-card group cursor-pointer animate-fade-in" onclick="window.location.href='projects/project4.html'" style="animation-delay: 0.4s;">
+                        <div class="project-icon">
+                            <i class="fas fa-search text-4xl text-purple-400 animate-pulse"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-code-blue">Задание-запросы</h3>
+                        <p class="text-gray-400 mb-4">Система обработки пользовательских запросов</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">AI</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                        <div class="text-purple-400 group-hover:translate-x-2 transition-transform">
+                            Подробнее <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Итоговый проект Заочники -->
+                    <div class="project-card group cursor-pointer animate-fade-in" onclick="window.location.href='projects/project5.html'" style="animation-delay: 0.5s;">
+                        <div class="project-icon">
+                            <i class="fas fa-graduation-cap text-4xl text-emerald-400 animate-bounce"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-code-blue">Итоговый проект. Заочники</h3>
+                        <p class="text-gray-400 mb-4">Система управления заочным обучением</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">WebRTC</span>
+                        </div>
+                        <div class="text-emerald-400 group-hover:translate-x-2 transition-transform">
+                            Подробнее <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-16 text-code-blue">Контакты</h2>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-gray-800/50 rounded-lg p-6 border border-code-blue/30 hover:border-code-blue transition-colors">
+                        <i class="fas fa-envelope text-3xl text-code-blue mb-4"></i>
+                        <h3 class="font-bold mb-2">Email</h3>
+                        <p class="text-gray-400">engineer@cyclone.ru</p>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-lg p-6 border border-purple-500/30 hover:border-purple-500 transition-colors">
+                        <i class="fab fa-github text-3xl text-purple-400 mb-4"></i>
+                        <h3 class="font-bold mb-2">GitHub</h3>
+                        <p class="text-gray-400">github.com/username</p>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-lg p-6 border border-green-500/30 hover:border-green-500 transition-colors">
+                        <i class="fab fa-telegram text-3xl text-green-400 mb-4"></i>
+                        <h3 class="font-bold mb-2">Telegram</h3>
+                        <p class="text-gray-400">@username</p>
+                    </div>
+                </div>
+
+                <div class="terminal-window max-w-md mx-auto">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                            <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                        </div>
+                        <span class="text-gray-400">contact.sh</span>
+                    </div>
+                    <div class="terminal-content text-left">
+                        <p class="text-terminal-green">$ echo "Готов к новым вызовам!"</p>
+                        <p class="text-white">Готов к новым вызовам!</p>
+                        <p class="text-terminal-green">$ collaboration --open</p>
+                        <p class="text-white">Открыт для сотрудничества</p>
+                        <p class="cursor">_</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 relative z-10 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2025 Portfolio. Создано с использованием современных веб-технологий.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

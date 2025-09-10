@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Order - Портфолио</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'code-dark': '#0d1117',
+                        'code-blue': '#58a6ff',
+                        'code-green': '#7c3aed',
+                        'terminal-green': '#00ff00'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-code-dark text-white min-h-screen">
+    <!-- Animated Background -->
+    <div class="fixed inset-0 z-0">
+        <div class="code-matrix"></div>
+        <div class="floating-elements"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black/20 backdrop-blur-md z-50 border-b border-code-blue/20">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="../index.html" class="text-2xl font-bold text-code-blue hover:text-white transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Назад к портфолио
+                </a>
+                <div class="text-orange-400">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    Complex Order
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <section class="pt-32 pb-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <div class="inline-flex items-center justify-center w-24 h-24 bg-orange-500/20 rounded-full mb-8 animate-bounce">
+                        <i class="fas fa-shopping-cart text-5xl text-orange-400"></i>
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
+                        Complex Order
+                    </h1>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                        Система управления сложными заказами с многоуровневой логикой обработки
+                    </p>
+                </div>
+
+                <!-- Order Management Preview -->
+                <div class="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-lg p-8 border border-orange-500/30">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-orange-400 mb-6 text-center">Схема обработки заказов</h3>
+                        
+                        <!-- Order Flow Diagram -->
+                        <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+                            <div class="bg-gray-800/50 rounded-lg p-4 border border-green-500/30 text-center min-w-0 flex-1">
+                                <i class="fas fa-plus-circle text-2xl text-green-400 mb-2"></i>
+                                <h4 class="font-bold text-green-400">Создание</h4>
+                                <p class="text-gray-400 text-sm">Новый заказ</p>
+                            </div>
+                            
+                            <div class="text-orange-400 text-2xl">
+                                <i class="fas fa-arrow-right animate-pulse"></i>
+                            </div>
+                            
+                            <div class="bg-gray-800/50 rounded-lg p-4 border border-blue-500/30 text-center min-w-0 flex-1">
+                                <i class="fas fa-cogs text-2xl text-blue-400 mb-2"></i>
+                                <h4 class="font-bold text-blue-400">Обработка</h4>
+                                <p class="text-gray-400 text-sm">Валидация и расчеты</p>
+                            </div>
+                            
+                            <div class="text-orange-400 text-2xl">
+                                <i class="fas fa-arrow-right animate-pulse"></i>
+                            </div>
+                            
+                            <div class="bg-gray-800/50 rounded-lg p-4 border border-purple-500/30 text-center min-w-0 flex-1">
+                                <i class="fas fa-truck text-2xl text-purple-400 mb-2"></i>
+                                <h4 class="font-bold text-purple-400">Доставка</h4>
+                                <p class="text-gray-400 text-sm">Выполнение заказа</p>
+                            </div>
+                            
+                            <div class="text-orange-400 text-2xl">
+                                <i class="fas fa-arrow-right animate-pulse"></i>
+                            </div>
+                            
+                            <div class="bg-gray-800/50 rounded-lg p-4 border border-yellow-500/30 text-center min-w-0 flex-1">
+                                <i class="fas fa-check-circle text-2xl text-yellow-400 mb-2"></i>
+                                <h4 class="font-bold text-yellow-400">Завершение</h4>
+                                <p class="text-gray-400 text-sm">Подтверждение</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="mb-6">
+                            <i class="fas fa-code text-6xl text-orange-400 animate-pulse"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold mb-4 text-orange-400">Проект в разработке</h2>
+                        <p class="text-gray-300 mb-6">
+                            Разработка комплексной системы управления заказами с поддержкой сложных бизнес-правил, 
+                            интеграции с внешними сервисами и аналитики.
+                        </p>
+                        
+                        <!-- Features Grid -->
+                        <div class="grid md:grid-cols-3 gap-4 mt-8">
+                            <div class="bg-gray-800/50 rounded-lg p-4 border border-orange-500/20">
+                                <i class="fas fa-sitemap text-2xl text-orange-400 mb-3"></i>
+                                <h4 class="font-bold text-orange-400">Workflow Engine</h4>
+                                <p class="text-gray-400 text-sm">Настраиваемые процессы обработки</p>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-4 border border-red-500/20">
+                                <i class="fas fa-chart-bar text-2xl text-red-400 mb-3"></i>
+                                <h4 class="font-bold text-red-400">Analytics</h4>
+                                <p class="text-gray-400 text-sm">Детальная аналитика заказов</p>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-4 border border-yellow-500/20">
+                                <i class="fas fa-plug text-2xl text-yellow-400 mb-3"></i>
+                                <h4 class="font-bold text-yellow-400">Integrations</h4>
+                                <p class="text-gray-400 text-sm">API интеграции с внешними системами</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tech Stack Preview -->
+                <div class="grid md:grid-cols-4 gap-6 mt-12">
+                    <div class="bg-gray-800/50 rounded-lg p-4 border border-orange-500/20 text-center">
+                        <i class="fas fa-layer-group text-3xl text-orange-400 mb-3"></i>
+                        <h4 class="font-bold text-orange-400">Microservices</h4>
+                        <p class="text-gray-400 text-sm">Архитектура микросервисов</p>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-lg p-4 border border-blue-500/20 text-center">
+                        <i class="fab fa-docker text-3xl text-blue-400 mb-3"></i>
+                        <h4 class="font-bold text-blue-400">Docker</h4>
+                        <p class="text-gray-400 text-sm">Контейнеризация</p>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-lg p-4 border border-green-500/20 text-center">
+                        <i class="fas fa-database text-3xl text-green-400 mb-3"></i>
+                        <h4 class="font-bold text-green-400">PostgreSQL</h4>
+                        <p class="text-gray-400 text-sm">База данных</p>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-lg p-4 border border-purple-500/20 text-center">
+                        <i class="fas fa-memory text-3xl text-purple-400 mb-3"></i>
+                        <h4 class="font-bold text-purple-400">Redis</h4>
+                        <p class="text-gray-400 text-sm">Кэширование</p>
+                    </div>
+                </div>
+
+                <!-- Progress Indicator -->
+                <div class="mt-12">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-gray-400">Прогресс разработки</span>
+                        <span class="text-orange-400 font-bold">30%</span>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-3">
+                        <div class="bg-gradient-to-r from-orange-400 to-red-500 h-3 rounded-full animate-pulse" style="width: 30%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 relative z-10 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-4">
+                <a href="../index.html" class="text-code-blue hover:text-white transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Вернуться к портфолио
+                </a>
+            </div>
+            <p class="text-gray-400">&copy; 2024 Portfolio. Complex Order - скоро будет готов!</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
