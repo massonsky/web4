@@ -1,0 +1,25 @@
+# Базовые цены для аренды платьев
+# Формат: название=цена
+
+# Базовая цена аренды
+base_rental_price=500
+
+# Базовая цена услуг
+base_service_price=200
+
+# Наценки по длине платья
+maxi_surcharge=100
+maxi_with_train_surcharge=150
+midi_surcharge=50
+
+# Наценки по типу платья
+evening_surcharge=100
+graduation_surcharge=10
+business_suit_surcharge=50
+
+# Коэффициент для мероприятий
+event_multiplier=1.5
+
+# Дополнительные услуги
+fitting_surcharge=80
+steaming_surcharge=30
