@@ -1,0 +1,24 @@
+{
+    "name": "cargo-transport/project3",
+    "description": "Cargo Transport System - Project 3",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "phpmailer/phpmailer": "^6.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "CargoTransport\\": "backend/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@php -r \"copy('vendor/phpmailer/phpmailer/src/Exception.php', 'backend/vendor/phpmailer/Exception.php');\"",
+            "@php -r \"copy('vendor/phpmailer/phpmailer/src/PHPMailer.php', 'backend/vendor/phpmailer/PHPMailer.php');\"",
+            "@php -r \"copy('vendor/phpmailer/phpmailer/src/SMTP.php', 'backend/vendor/phpmailer/SMTP.php');\""
+        ]
+    }
+}

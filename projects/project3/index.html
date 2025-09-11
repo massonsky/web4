@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargo Transport - Грузовые перевозки</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'code-dark': '#0d1117',
+                        'code-blue': '#58a6ff',
+                        'code-green': '#7c3aed',
+                        'code-purple': '#a855f7',
+                        'terminal-green': '#00ff00'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'code-rain': 'codeRain 20s linear infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'typing': 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="bg-code-dark text-white min-h-screen relative overflow-x-hidden">
+    <!-- Animated Background -->
+    <div class="fixed inset-0 z-0">
+        <div class="code-matrix"></div>
+        <div class="floating-elements"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black/20 backdrop-blur-md z-50 border-b border-code-blue/20">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-code-blue">
+                    <i class="fas fa-truck mr-2"></i>
+                    Cargo Transport
+                </div>
+                <div class="flex items-center space-x-6">
+                    <div id="auth-status" class="text-sm">
+                        <span id="auth-message" class="text-gray-400">Не авторизован</span>
+                        <button id="logout-btn" class="ml-4 text-red-400 hover:text-red-300 hidden" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i> Выйти
+                        </button>
+                    </div>
+                    <a href="../../index.html" class="hover:text-code-blue transition-colors">
+                        <i class="fas fa-home mr-2"></i>Главная
+                    </a>
+                    <a href="basket.php" class="hover:text-code-blue transition-colors" onclick="return requireAuth()">
+                        <i class="fas fa-shopping-basket mr-2"></i>Корзина
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto text-center">
+                <div class="inline-flex items-center justify-center w-24 h-24 bg-code-blue/20 rounded-full mb-8 animate-bounce">
+                    <i class="fas fa-shipping-fast text-5xl text-code-blue"></i>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-code-blue to-code-purple font-mono">
+                    Cargo.Transport()
+                </h1>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-12 font-mono">
+                    // Система грузовых перевозок с автоматическим расчетом стоимости<br>
+                    // Маршруты: СПб-Амстердам, СПб-Лиссабон, Севастополь-Амстердам, Севастополь-Лиссабон
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auth Section -->
+    <section id="auth-section" class="py-16 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="max-w-md mx-auto">
+                <div class="terminal-window p-6">
+                    <div class="terminal-header px-4 py-3 flex items-center space-x-2 mb-6">
+                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        <span class="text-sm text-gray-400 ml-4 font-mono">auth.login</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center font-mono">
+                        <i class="fas fa-terminal text-code-blue mr-3"></i>
+                        Авторизация
+                    </h3>
+                    <form id="login-form" onsubmit="login(event)">
+                        <div class="mb-4">
+                            <label class="block text-gray-400 text-sm font-mono mb-2">username:</label>
+                            <input type="text" id="username" class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white font-mono focus:border-code-blue focus:outline-none" placeholder="admin" required>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-400 text-sm font-mono mb-2">password:</label>
+                            <input type="password" id="password" class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white font-mono focus:border-code-blue focus:outline-none" placeholder="***" required>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-code-blue to-code-purple text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-code-blue/25 transition-all duration-300 font-mono">
+                            <i class="fas fa-sign-in-alt mr-2"></i>login()
+                        </button>
+                    </form>
+                    <div id="auth-error" class="mt-4 text-red-400 text-sm font-mono hidden"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services-section" class="py-16 relative z-10 hidden">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-white mb-4 font-mono">
+                    <i class="fas fa-route text-code-blue mr-3"></i>
+                    Available Routes
+                </h2>
+                <p class="text-center text-gray-400 mb-16 max-w-2xl mx-auto font-mono">
+                    // Доступные маршруты грузовых перевозок
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <!-- Route 1 -->
+                    <div class="terminal-window p-6">
+                        <div class="terminal-header px-4 py-3 flex items-center space-x-2 mb-6">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span class="text-sm text-gray-400 ml-4 font-mono">route.spb-amsterdam</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-code-blue mb-4 font-mono">СПб → Амстердам</h3>
+                        <div class="space-y-2 text-sm font-mono">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">basePrice:</span>
+                                <span class="text-terminal-green">2000₽</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">weight:</span>
+                                <span class="text-white">10т</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">distance:</span>
+                                <span class="text-white">1200км</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Route 2 -->
+                    <div class="terminal-window p-6">
+                        <div class="terminal-header px-4 py-3 flex items-center space-x-2 mb-6">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span class="text-sm text-gray-400 ml-4 font-mono">route.spb-lisbon</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-code-purple mb-4 font-mono">СПб → Лиссабон</h3>
+                        <div class="space-y-2 text-sm font-mono">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">basePrice:</span>
+                                <span class="text-terminal-green">4000₽</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">weight:</span>
+                                <span class="text-white">10т</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">distance:</span>
+                                <span class="text-white">2800км</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Route 3 -->
+                    <div class="terminal-window p-6">
+                        <div class="terminal-header px-4 py-3 flex items-center space-x-2 mb-6">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span class="text-sm text-gray-400 ml-4 font-mono">route.sev-amsterdam</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-yellow-400 mb-4 font-mono">Севастополь → Амстердам</h3>
+                        <div class="space-y-2 text-sm font-mono">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">basePrice:</span>
+                                <span class="text-terminal-green">10000₽</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">weight:</span>
+                                <span class="text-white">10т</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">distance:</span>
+                                <span class="text-white">2200км</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Route 4 -->
+                    <div class="terminal-window p-6">
+                        <div class="terminal-header px-4 py-3 flex items-center space-x-2 mb-6">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span class="text-sm text-gray-400 ml-4 font-mono">route.sev-lisbon</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-red-400 mb-4 font-mono">Севастополь → Лиссабон</h3>
+                        <div class="space-y-2 text-sm font-mono">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">basePrice:</span>
+                                <span class="text-terminal-green">6000₽</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">weight:</span>
+                                <span class="text-white">10т</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">distance:</span>
+                                <span class="text-white">3100км</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="backend/order.php" class="inline-flex items-center space-x-2 bg-gradient-to-r from-code-blue to-code-purple text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg hover:shadow-code-blue/25 transition-all duration-300 transform hover:scale-105 font-mono" onclick="return requireAuth()">
+                        <i class="fas fa-plus"></i>
+                        <span>createOrder()</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 relative z-10 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400 font-mono">&copy; 2024 Cargo Transport System. Built with <span class="text-red-400">♥</span> and code.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Проверка авторизации при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuthStatus();
+        });
+
+        function checkAuthStatus() {
+            const isAuthenticated = localStorage.getItem('cargo_auth') === 'true';
+            const authSection = document.getElementById('auth-section');
+            const servicesSection = document.getElementById('services-section');
+            const authMessage = document.getElementById('auth-message');
+            const logoutBtn = document.getElementById('logout-btn');
+
+            if (isAuthenticated) {
+                authSection.classList.add('hidden');
+                servicesSection.classList.remove('hidden');
+                authMessage.textContent = 'Авторизован как admin';
+                authMessage.className = 'text-terminal-green';
+                logoutBtn.classList.remove('hidden');
+            } else {
+                authSection.classList.remove('hidden');
+                servicesSection.classList.add('hidden');
+                authMessage.textContent = 'Не авторизован';
+                authMessage.className = 'text-gray-400';
+                logoutBtn.classList.add('hidden');
+            }
+        }
+
+        function login(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('auth-error');
+
+            // Отправка данных на сервер для авторизации
+            fetch('backend/auth.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    localStorage.setItem('cargo_auth', 'true');
+                    errorDiv.classList.add('hidden');
+                    checkAuthStatus();
+                } else {
+                    errorDiv.textContent = data.message || 'Ошибка авторизации';
+                    errorDiv.classList.remove('hidden');
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                errorDiv.textContent = 'Ошибка соединения с сервером';
+                errorDiv.classList.remove('hidden');
+            });
+        }
+
+        function logout() {
+            localStorage.removeItem('cargo_auth');
+            checkAuthStatus();
+        }
+
+        // Проверка авторизации для защищенных страниц
+        function requireAuth() {
+            if (localStorage.getItem('cargo_auth') !== 'true') {
+                alert('Ошибка: Необходима авторизация для создания заказа!');
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

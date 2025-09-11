@@ -1,0 +1,194 @@
+POST data: Array
+(
+    [route] => spb-moscow
+    [container_count] => 1
+    [container_1_weight] => 5
+    [container_1_loading] => no_tilt
+    [services] => Array
+        (
+            [0] => customs
+        )
+
+    [customer_name] => аваы
+    [customer_email] => fsdfs@mail.ru
+    [customer_phone] => 533454353534
+    [company_name] => fdsfsdfdsfsd
+    [cargo_description] => fsdfsd
+)
+
+POST data: Array
+(
+    [route] => spb-moscow
+    [container_count] => 1
+    [container_1_weight] => 5
+    [container_1_loading] => no_tilt
+    [services] => Array
+        (
+            [0] => insurance
+        )
+
+    [customer_name] => fsfdsfsd
+    [customer_email] => gavrin.01@bk.ru
+    [customer_phone] => 543534534543
+    [company_name] => 54353534
+    [cargo_description] => 53455345
+)
+
+POST data: Array
+(
+    [route] => spb-lisbon
+    [container_count] => 2
+    [container_1_weight] => 5
+    [container_1_loading] => no_tilt
+    [container_2_weight] => 5
+    [container_2_loading] => standard
+    [weekend_loading] => 1
+    [services] => Array
+        (
+            [0] => insurance
+        )
+
+    [customer_name] => павпвап
+    [customer_email] => gavrin.01@bk.ru
+    [customer_phone] => 5435435345345
+    [company_name] => safsdf
+    [cargo_description] => fsdfsfsdf
+)
+
+POST data: Array
+(
+    [route] => spb-moscow
+    [container_count] => 3
+    [container_1_weight] => 10
+    [container_1_loading] => no_tilt
+    [container_2_weight] => 2.5
+    [container_2_loading] => standard
+    [container_3_weight] => 5
+    [container_3_loading] => no_tilt
+    [weekend_loading] => 1
+    [services] => Array
+        (
+            [0] => insurance
+            [1] => customs
+            [2] => legal
+        )
+
+    [customer_name] => dsadsadsa
+    [customer_email] => gavrin.01@bk.ru
+    [customer_phone] => 54665646546
+    [company_name] => dfsfsdfs
+    [cargo_description] => fdsfdsfs
+)
+
+POST data: Array
+(
+    [route] => moscow-nsk
+    [container_count] => 3
+    [container_1_weight] => 5
+    [container_1_loading] => no_tilt
+    [container_2_weight] => 5
+    [container_2_loading] => standard
+    [container_3_weight] => 10
+    [container_3_loading] => standard
+    [weekend_loading] => 1
+    [services] => Array
+        (
+            [0] => insurance
+            [1] => customs
+            [2] => legal
+        )
+
+    [customer_name] => аычавыа
+    [customer_email] => dsadasdasd@ffds.ru
+    [customer_phone] => 324423423423
+    [company_name] => dsadas
+    [cargo_description] => asdsadsad
+)
+
+POST data: Array
+(
+    [route] => spb-helsinki
+    [container_count] => 3
+    [container_1_weight] => 10
+    [container_1_loading] => no_tilt
+    [container_2_weight] => 5
+    [container_2_loading] => no_tilt
+    [container_3_weight] => 2.5
+    [container_3_loading] => no_tilt
+    [weekend_loading] => 1
+    [services] => Array
+        (
+            [0] => insurance
+            [1] => customs
+            [2] => legal
+        )
+
+    [customer_name] => dsadasd
+    [customer_email] => gavrin.01@bk.ru
+    [customer_phone] => +79811574185
+    [company_name] => dsadasdas
+    [cargo_description] => dsadasda
+)
+
+POST data: Array
+(
+    [route] => moscow-nsk
+    [container_count] => 1
+    [container_1_weight] => 5
+    [container_1_loading] => no_tilt
+    [weekend_loading] => 1
+    [services] => Array
+        (
+            [0] => customs
+        )
+
+    [customer_name] => выфвфывыф
+    [customer_email] => gavrin.01@bk.ru
+    [customer_phone] => 4234234232
+    [company_name] => ddsadasdasd
+    [cargo_description] => dsadasdd
+)
+
+POST data: Array
+(
+    [route] => moscow-nsk
+    [container_count] => 3
+    [container_1_weight] => 10
+    [container_1_loading] => no_tilt
+    [container_2_weight] => 5
+    [container_2_loading] => standard
+    [container_3_weight] => 2.5
+    [container_3_loading] => standard
+    [weekend_loading] => 1
+    [services] => Array
+        (
+            [0] => insurance
+            [1] => customs
+            [2] => legal
+        )
+
+    [customer_name] => dsadasdas
+    [customer_email] => gavrin.01@bk.ru
+    [customer_phone] => 3213243232
+    [company_name] => wdasdasdasd
+    [cargo_description] => sadssadsadsadasdsa
+)
+
+POST data: Array
+(
+    [route] => moscow-nsk
+    [container_count] => 1
+    [container_1_weight] => 5
+    [container_1_loading] => no_tilt
+    [services] => Array
+        (
+            [0] => customs
+        )
+
+    [customer_name] => амвыамчсм
+    [customer_email] => gavrin.01@bk.ru
+    [customer_phone] => 3213213213
+    [company_name] => 3123213213
+    [cargo_description] => 23131321
+)
+
